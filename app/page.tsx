@@ -162,7 +162,7 @@ export default function Home() {
           animate="visible"
           className="relative z-10"
         >
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 flex flex-wrap justify-center gap-x-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter mb-6 flex flex-wrap justify-center gap-x-3 md:gap-x-6 px-2">
             {heroWords.map((word) => (
               <motion.span key={word} variants={wordVariants} className="inline-block">
                 {word}
@@ -186,8 +186,8 @@ export default function Home() {
       </section>
 
       {/* SEARCH SECTION */}
-      <section className="py-12 px-6 max-w-5xl mx-auto bg-neutral-900 border border-neutral-800 -mt-24 relative z-20 shadow-2xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="py-8 md:py-12 px-4 md:px-6 max-w-5xl mx-auto bg-neutral-900 border border-neutral-800 -mt-16 md:-mt-24 relative z-20 shadow-2xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           <input
             type="text"
             value={marca}
@@ -211,7 +211,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="mt-8 pt-8 border-t border-neutral-800 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-neutral-800 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <FilterTags
             label="Combustible"
             options={fuelOptions}
@@ -238,11 +238,11 @@ export default function Home() {
       </section>
 
       {/* CATALOG SECTION */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold mb-16 uppercase tracking-tighter text-center">Catálogo Actual</h2>
+      <section className="py-12 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
+        <h2 className="text-2xl md:text-4xl font-bold mb-10 md:mb-16 uppercase tracking-tighter text-center">Catálogo Actual</h2>
 
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {Array.from({ length: 6 }).map((_, i) => (
               <motion.div
                 key={i}
@@ -255,7 +255,7 @@ export default function Home() {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <AnimatePresence mode="popLayout">
               {autosFiltrados.length > 0 ? autosFiltrados.map((car) => (
                 <motion.div
@@ -285,7 +285,7 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="col-span-1 md:col-span-3 text-center py-24 border border-dashed border-neutral-800"
+                  className="col-span-1 sm:col-span-2 lg:col-span-3 text-center py-24 border border-dashed border-neutral-800"
                 >
                   <p className="text-neutral-500 uppercase tracking-widest mb-6">
                     No hay vehículos con esos criterios.
@@ -307,15 +307,15 @@ export default function Home() {
       <MarcasMarquee />
 
       {/* HUMAN TOUCH SECTION */}
-      <section className="py-20 px-6 max-w-5xl mx-auto border-t border-neutral-800">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-12 md:py-20 px-4 md:px-6 max-w-5xl mx-auto border-t border-neutral-800">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div>
-            <h2 className="text-4xl font-bold mb-6">Confianza y Respaldo</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Confianza y Respaldo</h2>
             <p className="text-neutral-400 mb-6 leading-relaxed">
               Más que clientes, buscamos amigos que se lleven la tranquilidad de una elección bien hecha.
             </p>
           </div>
-          <div className="relative h-64 overflow-hidden bg-neutral-900 border border-neutral-800">
+          <div className="relative h-56 md:h-64 overflow-hidden bg-neutral-900 border border-neutral-800">
             <Image
               src="/equipo.jpg"
               alt="Equipo de Troya Automotores"
