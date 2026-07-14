@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, useMemo } from "react";
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import CarCardSkeleton from "@/components/CarCardSkeleton";
 import CarImage from "@/components/CarImage";
@@ -306,24 +305,48 @@ export default function Home() {
       {/* MARCAS SECTION - marquee infinito */}
       <MarcasMarquee />
 
-      {/* HUMAN TOUCH SECTION */}
-      <section className="py-12 md:py-20 px-4 md:px-6 max-w-5xl mx-auto border-t border-neutral-800">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+      {/* CTA + FORMULARIO */}
+      <section className="py-16 md:py-24 px-4 md:px-6 border-t border-neutral-800">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Confianza y Respaldo</h2>
-            <p className="text-neutral-400 mb-6 leading-relaxed">
-              Más que clientes, buscamos amigos que se lleven la tranquilidad de una elección bien hecha.
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+              <span className="text-white">¿Buscás tu</span>
+              <br />
+              <span className="text-cyan-400">próximo vehículo?</span>
+            </h2>
+            <p className="text-neutral-400 mt-6 leading-relaxed max-w-md">
+              Completá el formulario y te contactamos con opciones a medida,
+              financiación disponible o para coordinar una prueba de manejo.
+              Respondemos en menos de 24hs.
             </p>
           </div>
-          <div className="relative h-56 md:h-64 overflow-hidden bg-neutral-900 border border-neutral-800">
-            <Image
-              src="/equipo.jpg"
-              alt="Equipo de Troya Automotores"
-              fill
-              className="object-cover"
+
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="flex flex-col gap-4"
+          >
+            <input
+              type="text"
+              placeholder="Tu Nombre"
+              className="bg-neutral-900 border border-neutral-800 p-4 outline-none focus:border-cyan-400 transition placeholder:text-neutral-500"
             />
-            <div className="absolute inset-0 shadow-[inset_0_0_60px_40px_rgba(0,0,0,0.85)]" />
-          </div>
+            <input
+              type="email"
+              placeholder="Email o WhatsApp"
+              className="bg-neutral-900 border border-neutral-800 p-4 outline-none focus:border-cyan-400 transition placeholder:text-neutral-500"
+            />
+            <textarea
+              placeholder="Qué vehículo estás buscando"
+              rows={4}
+              className="bg-neutral-900 border border-neutral-800 p-4 outline-none focus:border-cyan-400 transition placeholder:text-neutral-500 resize-none"
+            />
+            <button
+              type="submit"
+              className="bg-cyan-400 text-black font-bold uppercase tracking-widest text-sm py-4 hover:bg-cyan-300 transition"
+            >
+              Enviar Solicitud
+            </button>
+          </form>
         </div>
       </section>
     </main>
