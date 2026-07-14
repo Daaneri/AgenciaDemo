@@ -30,6 +30,59 @@ const wordVariants = {
   },
 };
 
+const marcas = [
+  "BMW",
+  "Toyota",
+  "Mercedes-Benz",
+  "Audi",
+  "Volkswagen",
+  "Ford",
+  "Chevrolet",
+  "Honda",
+];
+
+function MarcasMarquee() {
+  const items = [...marcas, ...marcas];
+
+  return (
+    <section className="py-16 border-t border-neutral-800 overflow-hidden">
+      <h2 className="text-center text-sm uppercase tracking-widest text-neutral-500 mb-10">
+        Marcas que representamos
+      </h2>
+
+      <div className="relative w-full overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#050505] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#050505] to-transparent z-10" />
+
+        <div className="flex w-max animate-marquee gap-6">
+          {items.map((marca, i) => (
+            <span
+              key={`${marca}-${i}`}
+              className="shrink-0 px-8 py-4 border border-neutral-800 bg-neutral-900 text-neutral-400 text-sm font-semibold uppercase tracking-wide whitespace-nowrap"
+            >
+              {marca}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes marquee {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-marquee {
+          animation: marquee 25s linear infinite;
+        }
+      `}</style>
+    </section>
+  );
+}
+
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [marca, setMarca] = useState("");
@@ -249,6 +302,9 @@ export default function Home() {
           </div>
         )}
       </section>
+
+      {/* MARCAS SECTION - marquee infinito */}
+      <MarcasMarquee />
 
       {/* HUMAN TOUCH SECTION */}
       <section className="py-20 px-6 max-w-5xl mx-auto border-t border-neutral-800">
